@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class RadioTab extends StatelessWidget {
-  const RadioTab({super.key});
+  RadioTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class RadioTab extends StatelessWidget {
                 ),
                 IconButton(
                   icon: Icon(
-                    Icons.play_arrow_rounded,
+                    Icons.play_arrow,
                     color: Theme.of(context).primaryColor,
                     size: 60,
                   ),

@@ -40,7 +40,6 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Theme.of(context).brightness == Brightness.light
           ? Image.asset('images/logo2.png')
           : Image.asset('images/logo.png'),
-      //child: FlutterLogo(size: MediaQuery.of(context).size.height)
     );
   }
 }
