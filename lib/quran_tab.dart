@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islamy/suraTab.dart';
 
 class Quran_tab extends StatefulWidget {
   const Quran_tab({super.key});
@@ -126,8 +127,11 @@ class _Quran_tabState extends State<Quran_tab> {
     "الناس"
   ];
   List<String> virses = [];
+  List<int> virsesCount = [];
   @override
   Widget build(BuildContext context) {
+    if (virsesCount.isEmpty) loadSuras();
+    // if(virses.isEmpty) loadSura(index)
     return Container(
       child: Column(
         children: [
@@ -152,8 +156,15 @@ class _Quran_tabState extends State<Quran_tab> {
                           //Text(virses[index].toString()),
                           IconButton.filled(
                               onPressed: () {
-                                loadSura(index + 1);
-                                SuraView(sura: virses);
+                                Navigator.of(context).pushNamed(
+                                    SuraTab.routName,
+                                    arguments: QuranModel(
+                                        name: suraNames[index], index: index));
+                                ;
+                                //SuraTab();
+                                // loadSura(index + 1);
+                                // SuraView(sura: virses);
+                                // setState(() {});
                               },
                               icon: Icon(Icons.arrow_circle_right_outlined))
                         ],
@@ -167,24 +178,27 @@ class _Quran_tabState extends State<Quran_tab> {
     );
   }
 
-  loadSura(int index) async {
-    String sura = await rootBundle.loadString('quran/$index.txt');
-    virses = sura.split('\n');
+  loadSuras() async {
+    List<int> _virsesCount = [];
+
+    for (var i = 0; i < suraNames.length; i++) {
+      String data = await rootBundle.loadString('assets/quran/${i + 1}.txt');
+      List<String> content = data.trim().split('\n');
+      content.removeWhere(
+        (element) => element.trim().isEmpty,
+      );
+      _virsesCount.add(content.length);
+    }
+    virsesCount = _virsesCount;
     setState(() {});
   }
 }
 
-class SuraView extends StatelessWidget {
-  final List<String> sura = [];
-  SuraView({super.key, sura});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: sura.length,
-      itemBuilder: (BuildContext context, index) {
-        return Text(sura[index]);
-      },
-    );
-  }
+class QuranModel {
+  String name;
+  int index;
+  QuranModel({
+    required this.name,
+    required this.index,
+  });
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islamy/suraTab.dart';
 import 'splash.dart';
 import 'common/themes.dart';
 
@@ -15,9 +16,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: Themes.light,
       darkTheme: Themes.dark,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.dark,
       routes: {
         '/': (context) => MyHomePage(),
+        'SuraTab': (context) => SuraTab(),
       },
       initialRoute: '/',
     );

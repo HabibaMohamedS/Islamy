@@ -40,7 +40,7 @@ class Themes {
           brightness: Brightness.dark,
           primary: Color(0xFFFACC1D),
           onPrimary: Color(0xFFFACC1D),
-          secondary: Color(0xFFFACC1D),
+          secondary: Color(0xFF141A2E),
           onSecondary: Color(0xFFFACC1D),
           error: Colors.red,
           onError: Colors.red,
