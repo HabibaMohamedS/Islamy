@@ -160,7 +160,7 @@ class _Quran_tabState extends State<Quran_tab> {
                                     SuraTab.routName,
                                     arguments: QuranModel(
                                         name: suraNames[index], index: index));
-                                ;
+
                                 //SuraTab();
                                 // loadSura(index + 1);
                                 // SuraView(sura: virses);

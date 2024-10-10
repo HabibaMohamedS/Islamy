@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islamy/hadith_screen.dart';
 import 'package:islamy/suraTab.dart';
 import 'splash.dart';
 import 'common/themes.dart';
@@ -16,10 +17,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: Themes.light,
       darkTheme: Themes.dark,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       routes: {
         '/': (context) => MyHomePage(),
         'SuraTab': (context) => SuraTab(),
+        'hadithScreen': (context) => HadithScreen()
       },
       initialRoute: '/',
     );
