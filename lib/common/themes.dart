@@ -5,7 +5,7 @@ class Themes {
     dividerTheme: DividerThemeData(color: Color(0xFFB7935F)),
     textTheme: TextTheme(
         titleLarge: TextStyle(
-            color: Colors.black, fontSize: 25, fontWeight: FontWeight.w600),
+            color: Colors.black, fontSize: 28, fontWeight: FontWeight.w600),
         displayMedium: TextStyle(
             color: Colors.black, fontWeight: FontWeight.w400, fontSize: 25),
         displaySmall: TextStyle(fontWeight: FontWeight.w400, fontSize: 20.5)),
@@ -49,13 +49,13 @@ class Themes {
           elevation: 0),
       textTheme: TextTheme(
           titleLarge: TextStyle(
-              color: Colors.black, fontSize: 25, fontWeight: FontWeight.w600),
+              color: Colors.white, fontSize: 28, fontWeight: FontWeight.w600),
           displayMedium: TextStyle(fontWeight: FontWeight.w400, fontSize: 25),
           displaySmall: TextStyle(fontWeight: FontWeight.w400, fontSize: 20.5)),
       colorScheme: ColorScheme(
           brightness: Brightness.dark,
           primary: Color(0xFFFACC1D),
-          onPrimary: Color(0xFFFACC1D),
+          onPrimary: Color(0xFF141A2E),
           secondary: Color(0xFF141A2E),
           onSecondary: Color(0xFFFACC1D),
           error: Colors.red,

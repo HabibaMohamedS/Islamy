@@ -10,11 +10,13 @@ class HadithScreen extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: Theme.of(context).brightness == Brightness.light
-                    ? AssetImage("images/default_bg.png")
-                    : AssetImage('images/dark_bg.png'),
-                fit: BoxFit.cover)),
+          image: Theme.of(context).brightness == Brightness.light
+              ? AssetImage("images/default_bg.png")
+              : AssetImage('images/dark_bg.png'),
+          fit: BoxFit.cover,
+        )),
         child: Scaffold(
+          backgroundColor: Colors.transparent,
           appBar: AppBar(
             foregroundColor: Colors.transparent,
             leading: IconButton(

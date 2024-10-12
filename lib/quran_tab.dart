@@ -130,8 +130,23 @@ class _Quran_tabState extends State<Quran_tab> {
   List<int> virsesCount = [];
   @override
   Widget build(BuildContext context) {
-    if (virsesCount.isEmpty) loadSuras();
-    // if(virses.isEmpty) loadSura(index)
+    if (virsesCount.isEmpty) {
+      return FutureBuilder(
+        future: loadSuras(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else {
+            return buildUI();
+          }
+        },
+      );
+    } else {
+      return buildUI();
+    }
+  }
+
+  Widget buildUI() {
     return Container(
       child: Column(
         children: [
@@ -139,11 +154,16 @@ class _Quran_tabState extends State<Quran_tab> {
           Expanded(
             child: SingleChildScrollView(
               child: ListView.builder(
-                  shrinkWrap: true,
-                  //physics: NeverScrollableScrollPhysics(),
-                  itemCount: suraNames.length,
-                  itemBuilder: (BuildContext context, index) {
-                    return Card(
+                shrinkWrap: true,
+                itemCount: suraNames.length,
+                itemBuilder: (BuildContext context, index) {
+                  return InkWell(
+                    onTap: () {
+                      Navigator.of(context).pushNamed(SuraTab.routName,
+                          arguments:
+                              QuranModel(name: suraNames[index], index: index));
+                    },
+                    child: Card(
                       elevation: 50,
                       shadowColor: Colors.black,
                       child: Row(
@@ -153,24 +173,14 @@ class _Quran_tabState extends State<Quran_tab> {
                             suraNames[index],
                             style: Theme.of(context).textTheme.displayMedium,
                           ),
-                          //Text(virses[index].toString()),
-                          IconButton.filled(
-                              onPressed: () {
-                                Navigator.of(context).pushNamed(
-                                    SuraTab.routName,
-                                    arguments: QuranModel(
-                                        name: suraNames[index], index: index));
-
-                                //SuraTab();
-                                // loadSura(index + 1);
-                                // SuraView(sura: virses);
-                                // setState(() {});
-                              },
-                              icon: Icon(Icons.arrow_circle_right_outlined))
+                          Text(virsesCount[index].toString(),
+                              style: Theme.of(context).textTheme.displayMedium)
                         ],
                       ),
-                    );
-                  }),
+                    ),
+                  );
+                },
+              ),
             ),
           )
         ],
@@ -178,7 +188,7 @@ class _Quran_tabState extends State<Quran_tab> {
     );
   }
 
-  loadSuras() async {
+  Future<void> loadSuras() async {
     List<int> _virsesCount = [];
 
     for (var i = 0; i < suraNames.length; i++) {

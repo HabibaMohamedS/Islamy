@@ -28,7 +28,7 @@ class RadioTab extends StatelessWidget {
                 IconButton(
                   icon: Icon(
                     Icons.skip_previous,
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).colorScheme.primary,
                     size: 50,
                   ),
                   onPressed: () {},
@@ -36,7 +36,7 @@ class RadioTab extends StatelessWidget {
                 IconButton(
                   icon: Icon(
                     Icons.play_arrow,
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).colorScheme.primary,
                     size: 60,
                   ),
                   onPressed: () {},
@@ -44,7 +44,7 @@ class RadioTab extends StatelessWidget {
                 IconButton(
                   icon: Icon(
                     Icons.skip_next,
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).colorScheme.primary,
                     size: 50,
                   ),
                   onPressed: () {},

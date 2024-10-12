@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islamy/RadioTab.dart';
 import 'package:islamy/hadethTab.dart';
 import 'dart:async';
-
+import 'package:islamy/common/themes.dart';
 import 'package:islamy/quran_tab.dart';
 import 'package:islamy/sebhaTab.dart';
 
@@ -63,6 +63,13 @@ class _SecondScreenState extends State<SecondScreen> {
         fit: BoxFit.cover,
       )),
       child: Scaffold(
+        appBar: AppBar(
+          foregroundColor: Colors.transparent,
+          title: Text(
+            'islamy',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+        ),
         body: tabs[index],
         backgroundColor: Colors.transparent,
         bottomNavigationBar: BottomNavigationBar(

@@ -9,6 +9,13 @@ class SebhaTAb extends StatefulWidget {
 
 class _SebhaTAbState extends State<SebhaTAb> {
   int counter = 0;
+  int index = 0;
+  List<String> tsbeh = [
+    "سبحان الله",
+    'الحمد لله',
+    "لا اله الا الله",
+    "الله اكبر"
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,13 +39,17 @@ class _SebhaTAbState extends State<SebhaTAb> {
               width: 50,
               height: 60,
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 189, 168, 130),
+                  color:
+                      Theme.of(context).colorScheme.onPrimary.withOpacity(.5),
                   borderRadius: BorderRadius.vertical(
                       top: Radius.circular(10), bottom: Radius.circular(10))),
-              child: Text(
-                counter.toString(),
-                style: Theme.of(context).textTheme.displaySmall,
-                textAlign: TextAlign.center,
+              child: Align(
+                alignment: Alignment.center,
+                child: Text(
+                  counter.toString(),
+                  style: Theme.of(context).textTheme.displayMedium,
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
             SizedBox(
@@ -50,10 +61,17 @@ class _SebhaTAbState extends State<SebhaTAb> {
                       borderRadius: BorderRadius.circular(15)))),
               onPressed: () {
                 counter++;
+                if (counter % 33 == 0) {
+                  if (index < 3) {
+                    index++;
+                  } else {
+                    index = 0;
+                  }
+                }
                 setState(() {});
               },
               child: Text(
-                "سبحان الله",
+                tsbeh[index],
                 style: Theme.of(context).textTheme.displayMedium,
               ),
             ),

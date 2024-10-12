@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: Themes.light,
       darkTheme: Themes.dark,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.dark,
       routes: {
         '/': (context) => MyHomePage(),
         'SuraTab': (context) => SuraTab(),
