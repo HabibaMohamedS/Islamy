@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:islamy/common/themes.dart';
 import 'package:islamy/quran_tab.dart';
 import 'package:islamy/sebhaTab.dart';
+import 'package:islamy/settingsTab.dart';
 
 class Splash extends StatelessWidget {
   @override
@@ -51,7 +52,13 @@ class SecondScreen extends StatefulWidget {
 
 class _SecondScreenState extends State<SecondScreen> {
   int index = 0;
-  List<Widget> tabs = [RadioTab(), SebhaTAb(), HadethTab(), Quran_tab()];
+  List<Widget> tabs = [
+    RadioTab(),
+    SebhaTAb(),
+    HadethTab(),
+    Quran_tab(),
+    SettinsTab()
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -98,6 +105,8 @@ class _SecondScreenState extends State<SecondScreen> {
               BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('images/icon_quran.png')),
                   label: 'quran'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.settings), label: 'settings'),
             ]),
       ),
     );
