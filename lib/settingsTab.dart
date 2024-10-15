@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:islamy/common/themes.dart';
 import 'package:islamy/themeSettings.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettinsTab extends StatefulWidget {
   const SettinsTab({super.key});
@@ -11,8 +11,6 @@ class SettinsTab extends StatefulWidget {
 }
 
 class _SettinsTabState extends State<SettinsTab> {
-  bool darkTheme = true;
-  //ThemeMode appTheme=Theme.of(context).brightness;
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<ThemeSettings>(context);
@@ -26,7 +24,7 @@ class _SettinsTabState extends State<SettinsTab> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'theme',
+                  AppLocalizations.of(context)!.darkTheme,
                   style: Theme.of(context).textTheme.displayMedium,
                 ),
                 Transform.scale(
@@ -38,8 +36,7 @@ class _SettinsTabState extends State<SettinsTab> {
                       inactiveTrackColor: Color.fromARGB(255, 36, 33, 33),
                       inactiveThumbColor: Color.fromARGB(255, 212, 173, 65),
                       onChanged: (value) {
-                        provider.changeTheme(
-                            value ? ThemeMode.dark : ThemeMode.light);
+                        provider.saveChangedTheme(value ? 'dark' : 'light');
                       }),
                 )
               ],
@@ -48,11 +45,11 @@ class _SettinsTabState extends State<SettinsTab> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'language',
+                  AppLocalizations.of(context)!.language,
                   style: Theme.of(context).textTheme.displayMedium,
                 ),
                 DropdownButton(
-                  value: 'en',
+                  value: provider.localCode,
                   items: [
                     DropdownMenuItem(
                       child: Text('عربي'),
@@ -63,7 +60,11 @@ class _SettinsTabState extends State<SettinsTab> {
                       value: 'en',
                     ),
                   ],
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    if (value != null) {
+                      provider.changeLanguage(value);
+                    }
+                  },
                 )
               ],
             )

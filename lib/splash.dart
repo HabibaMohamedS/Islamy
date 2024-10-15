@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:islamy/RadioTab.dart';
 import 'package:islamy/hadethTab.dart';
 import 'dart:async';
-import 'package:islamy/common/themes.dart';
 import 'package:islamy/quran_tab.dart';
 import 'package:islamy/sebhaTab.dart';
 import 'package:islamy/settingsTab.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Splash extends StatelessWidget {
   @override
@@ -73,7 +73,7 @@ class _SecondScreenState extends State<SecondScreen> {
         appBar: AppBar(
           foregroundColor: Colors.transparent,
           title: Text(
-            'islamy',
+            AppLocalizations.of(context)!.islamy,
             style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
@@ -95,18 +95,19 @@ class _SecondScreenState extends State<SecondScreen> {
             items: [
               BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('images/icon_radio.png')),
-                  label: 'radio'),
+                  label: AppLocalizations.of(context)!.radio),
               BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('images/icon_sebha.png')),
-                  label: 'sebha'),
+                  label: AppLocalizations.of(context)!.sebha),
               BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('images/icon_hadeth.png')),
-                  label: 'hadith'),
+                  label: AppLocalizations.of(context)!.hadith),
               BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('images/icon_quran.png')),
-                  label: 'quran'),
+                  label: AppLocalizations.of(context)!.quran),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.settings), label: 'settings'),
+                  icon: Icon(Icons.settings),
+                  label: AppLocalizations.of(context)!.settings),
             ]),
       ),
     );

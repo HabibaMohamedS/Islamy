@@ -21,7 +21,7 @@ class HadithScreen extends StatelessWidget {
             foregroundColor: Colors.transparent,
             leading: IconButton(
                 icon: Icon(Icons.arrow_back,
-                    color: Theme.of(context).colorScheme.secondary),
+                    color: Theme.of(context).colorScheme.onSecondary),
                 onPressed: () {
                   Navigator.of(context).pop();
                 }),
