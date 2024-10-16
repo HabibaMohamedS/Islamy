@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamy/RadioTab.dart';
 import 'package:islamy/hadethTab.dart';
+import 'package:islamy/prayerTimesTab.dart';
 import 'dart:async';
 import 'package:islamy/quran_tab.dart';
 import 'package:islamy/sebhaTab.dart';
@@ -57,7 +58,8 @@ class _SecondScreenState extends State<SecondScreen> {
     SebhaTAb(),
     HadethTab(),
     Quran_tab(),
-    SettinsTab()
+    SettinsTab(),
+    PrayerTab()
   ];
   @override
   Widget build(BuildContext context) {
@@ -108,6 +110,9 @@ class _SecondScreenState extends State<SecondScreen> {
               BottomNavigationBarItem(
                   icon: Icon(Icons.settings),
                   label: AppLocalizations.of(context)!.settings),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.mosque),
+                  label: AppLocalizations.of(context)!.prayer),
             ]),
       ),
     );
